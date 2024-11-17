@@ -234,7 +234,7 @@ Example input data for querying the endpoint:
     }
   ]
 }
-
+```
 For this example, the expected model response should be:
 ```json
 Expected output: [1, 1, 0, 1, 0]
