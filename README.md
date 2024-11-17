@@ -66,6 +66,27 @@ Config:
 - **Featurization**: Automatic feature engineering is enabled (`featurization` = 'auto').
 - **Logging**: Debug logs are saved in "automl_errors.log".
 
+**Run notebook process:**
+**Run widget - Run AutoML experiment**
+![1](images/1.5_01_automl_runwidget_screenshoot1.png)
+Pass all the data validation process
+![2](images/1.5_01_automl_runwidget_screenshoot2.png)
+Run widget, all the iterations of AutoML experiment
+![3](images/1.5_01_automl_runwidget_screenshoot3.png)
+
+**Best AutoML model**
+Best automl model, get_output with ID
+![4](images/1.5_02_automl_bestmodel1.png)
+Best automl model properties
+![5](images/1.5_02_automl_bestmodel2.png)
+![6](images/1.5_02_automl_bestmodel3.png)
+
+**Register AutoML best model**
+Registered AutoML best model in code
+![7](images/1.5_03_automl_registeredmodel1.png)
+Registered AutoML best model in Model list
+![8](images/1.5_03_automl_registeredmodel2.png)
+
 For the AutoML run, the best model selected was a **Voting Ensemble** with the following metrics:
 - **Accuracy**: 0.88945
 - **AUC (Macro)**: 0.94233
@@ -83,165 +104,65 @@ I applied a simple logistic regression model, tuning two key parameters:
 - `C`: Controls regularization strength, with smaller values increasing regularization. A continuous random value between 0.1 and 10 was used.
 - `max_iter`: Sets the maximum number of iterations for convergence. Discrete values of 50, 75, and 100 were tested.
 
+**Setting Random sampling and early stop policy**
+![9](images/1.5_04_hyperdrive_randomsampling_policy_2tunehyperpara.png)
+
 ### Results
 The hyperparameter tuning process yielded a best accuracy of `0.73320`, achieved with `C=1.4906697` and `max_iter=100`. Further improvements could be explored by expanding the parameter range or adding other parameters like the solver.
 
-Screenshot of `RunDetails` widget
+**Run widget of the Hyperparameter experiment**
+![10](images/1.5_06_hyperdrive_runwidget_screenshoot1.png)
+![11](images/1.5_06_hyperdrive_runwidget_screenshoot2.png)
+![12](images/1.5_06_hyperdrive_runwidget_screenshoot3.png)
+![13](images/1.5_06_hyperdrive_runwidget_screenshoot4.png)
 
-Screenshot of best model's run ID and parameters
+**Save the best model of Hyperparameter notebook**
+![14](images/1.5_05_hyperdrive_savebestmodel.png)
 
+**Register Hyperparameter best model**
+Register Hyperparameter best model in code
+![15](images/1.5_07_hyperdrive_registeredmodel1.png)
+Register Hyperparameter best model in Model list
+![16](images/1.5_07_hyperdrive_registeredmodel2.png)
 
 ## Model Deployment
-The best model from the AutoML experiment was deployed with authentication enabled for secure access.
+The best model from the AutoML experiment was deployed with authentication enabled for secure access and app insight enable for monitoring.
+![17](images/1.5_08_endpoint2.png)
+
+The Endpoint is registered in Endpoint page
+![18](images/1.5_08_endpoint1.png)
 
 Screenshot showing model endpoint with deployment status as Completed, operation status as Healthy, and endpoint URI:
+![19](images/1.5_08_endpoint3.png)
+![20](images/1.5_08_endpoint4.png)
 
 To interact with the deployed model, retrieve the scoring URI and API key. Include the key in the header for authorization and send a request to the URI.
-Example input data for querying the endpoint:
+![21](images/1.5_09_sendrequest_endpoint.png)
+Example input data to get prediction from the endpoint:
 
 ```json
 {
   "data": [
-    {
-      "id": 7247,
-      "limitBal": 230000,
-      "sex": 1,
-      "education": 1,
-      "married": 1,
-      "age": 32,
-      "pay_0": 1,
-      "pay_2": -2,
-      "pay_3": -2,
-      "pay_4": -2,
-      "pay_5": -2,
-      "pay_6": -1,
-      "billAmt_1": 0,
-      "billAmt_2": 0,
-      "billAmt_3": 0,
-      "billAmt_4": 0,
-      "billAmt_5": 0,
-      "billAmt_6": 150,
-      "payAmt_1": 0,
-      "payAmt_2": 0,
-      "payAmt_3": 0,
-      "payAmt_4": 0,
-      "payAmt_5": 150,
-      "payAmt_6": 990
-    },
-    {
-      "id": 8115,
-      "limitBal": 90000,
-      "sex": 0,
-      "education": 2,
-      "married": 2,
-      "age": 28,
-      "pay_0": 2,
-      "pay_2": 0,
-      "pay_3": 0,
-      "pay_4": 0,
-      "pay_5": 2,
-      "pay_6": 0,
-      "billAmt_1": 48177,
-      "billAmt_2": 49563,
-      "billAmt_3": 47750,
-      "billAmt_4": 47169,
-      "billAmt_5": 46284,
-      "billAmt_6": 47519,
-      "payAmt_1": 2500,
-      "payAmt_2": 2500,
-      "payAmt_3": 3700,
-      "payAmt_4": 0,
-      "payAmt_5": 2200,
-      "payAmt_6": 1800
-    },
-    {
-      "id": 5309,
-      "limitBal": 80000,
-      "sex": 1,
-      "education": 1,
-      "married": 2,
-      "age": 35,
-      "pay_0": 0,
-      "pay_2": 0,
-      "pay_3": 0,
-      "pay_4": 0,
-      "pay_5": 0,
-      "pay_6": 0,
-      "billAmt_1": 52065,
-      "billAmt_2": 55205,
-      "billAmt_3": 55900,
-      "billAmt_4": 55622,
-      "billAmt_5": 56295,
-      "billAmt_6": 61598,
-      "payAmt_1": 5000,
-      "payAmt_2": 2606,
-      "payAmt_3": 2200,
-      "payAmt_4": 2100,
-      "payAmt_5": 6679,
-      "payAmt_6": 1700
-    },
-    {
-      "id": 10268,
-      "limitBal": 80000,
-      "sex": 1,
-      "education": 3,
-      "married": 1,
-      "age": 45,
-      "pay_0": 0,
-      "pay_2": 0,
-      "pay_3": 2,
-      "pay_4": 0,
-      "pay_5": 0,
-      "pay_6": 0,
-      "billAmt_1": 8133,
-      "billAmt_2": 10978,
-      "billAmt_3": 10511,
-      "billAmt_4": 11529,
-      "billAmt_5": 12332,
-      "billAmt_6": 13128,
-      "payAmt_1": 3000,
-      "payAmt_2": 0,
-      "payAmt_3": 1200,
-      "payAmt_4": 1000,
-      "payAmt_5": 1000,
-      "payAmt_6": 1000
-    },
-    {
-      "id": 5322,
-      "limitBal": 60000,
-      "sex": 0,
-      "education": 1,
-      "married": 2,
-      "age": 26,
-      "pay_0": -1,
-      "pay_2": -1,
-      "pay_3": 2,
-      "pay_4": -1,
-      "pay_5": 0,
-      "pay_6": -1,
-      "billAmt_1": 3437,
-      "billAmt_2": 16932,
-      "billAmt_3": 2301,
-      "billAmt_4": 6220,
-      "billAmt_5": 2227,
-      "billAmt_6": 10416,
-      "payAmt_1": 16960,
-      "payAmt_2": 0,
-      "payAmt_3": 6227,
-      "payAmt_4": 0,
-      "payAmt_5": 10416,
-      "payAmt_6": 0
-    }
+{"id": 7247, "limitBal": 230000, "sex": 1, "education": 1, "married": 1, "age": 32, "pay_0": 1, "pay_2": -2, "pay_3": -2, "pay_4": -2, "pay_5": -2, "pay_6": -1, "billAmt_1": 0, "billAmt_2": 0, "billAmt_3": 0, "billAmt_4": 0, "billAmt_5": 0, "billAmt_6": 150, "payAmt_1": 0, "payAmt_2": 0, "payAmt_3": 0, "payAmt_4": 0, "payAmt_5": 150, "payAmt_6": 990}
+{"id": 8115, "limitBal": 90000, "sex": 0, "education": 2, "married": 2, "age": 28, "pay_0": 2, "pay_2": 0, "pay_3": 0, "pay_4": 0, "pay_5": 2, "pay_6": 0, "billAmt_1": 48177, "billAmt_2": 49563, "billAmt_3": 47750, "billAmt_4": 47169, "billAmt_5": 46284, "billAmt_6": 47519, "payAmt_1": 2500, "payAmt_2": 2500, "payAmt_3": 3700, "payAmt_4": 0, "payAmt_5": 2200, "payAmt_6": 1800}
+{"id": 5309, "limitBal": 80000, "sex": 1, "education": 1, "married": 2, "age": 35, "pay_0": 0, "pay_2": 0, "pay_3": 0, "pay_4": 0, "pay_5": 0, "pay_6": 0, "billAmt_1": 52065, "billAmt_2": 55205, "billAmt_3": 55900, "billAmt_4": 55622, "billAmt_5": 56295, "billAmt_6": 61598, "payAmt_1": 5000, "payAmt_2": 2606, "payAmt_3": 2200, "payAmt_4": 2100, "payAmt_5": 6679, "payAmt_6": 1700}
+{"id": 10268, "limitBal": 80000, "sex": 1, "education": 3, "married": 1, "age": 45, "pay_0": 0, "pay_2": 0, "pay_3": 2, "pay_4": 0, "pay_5": 0, "pay_6": 0, "billAmt_1": 8133, "billAmt_2": 10978, "billAmt_3": 10511, "billAmt_4": 11529, "billAmt_5": 12332, "billAmt_6": 13128, "payAmt_1": 3000, "payAmt_2": 0, "payAmt_3": 1200, "payAmt_4": 1000, "payAmt_5": 1000, "payAmt_6": 1000}
+{"id": 5322, "limitBal": 60000, "sex": 0, "education": 1, "married": 2, "age": 26, "pay_0": -1, "pay_2": -1, "pay_3": 2, "pay_4": -1, "pay_5": 0, "pay_6": -1, "billAmt_1": 3437, "billAmt_2": 16932, "billAmt_3": 2301, "billAmt_4": 6220, "billAmt_5": 2227, "billAmt_6": 10416, "payAmt_1": 16960, "payAmt_2": 0, "payAmt_3": 6227, "payAmt_4": 0, "payAmt_5": 10416, "payAmt_6": 0}
   ]
 }
+
 ```
 For this example, the expected model response should be:
 ```text
 Expected output: [1, 1, 0, 1, 0]
 Model response: "{\"result\": [1, 1, 0, 1, 0]}"
 ```
-
-Sample code to send request to endpoint:
+**Get service log**
+Get all the service log
+![22](images/1.5_09_service_getlogs.png)
+**Delete service**
+Delete the service after it all done
+![23](images/1.5_09_service_delete.png)
 
 ## Suggestions for Future Improvements
 - Since this dataset is somewhat unbalanced, a different primary metric, like AUC-weighted, might yield better insights.
@@ -251,4 +172,4 @@ Sample code to send request to endpoint:
   - Implementing a custom scoring function for metrics such as AUC-weighted.
 
 ## Screen Recording
-[Youtube Screencast]
+[Youtube Screencast](https://youtu.be/GmuLMDjg9_I)
