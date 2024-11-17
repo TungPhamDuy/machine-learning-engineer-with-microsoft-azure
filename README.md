@@ -157,10 +157,11 @@ For this example, the expected model response should be:
 Expected output: [1, 1, 0, 1, 0]
 Model response: "{\"result\": [1, 1, 0, 1, 0]}"
 ```
-**Get service log**
+**Get service log** \
 Get all the service log
 ![22](images/1.5_09_service_getlogs.png)
 **Delete service**
+
 Delete the service after it all done
 ![23](images/1.5_09_service_delete.png)
 
