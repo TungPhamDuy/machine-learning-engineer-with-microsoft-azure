@@ -66,6 +66,14 @@ Config:
 - **Featurization**: Automatic feature engineering is enabled (`featurization` = 'auto').
 - **Logging**: Debug logs are saved in "automl_errors.log".
 
+For the AutoML run, the best model selected was a **Voting Ensemble** with the following metrics:
+- **Accuracy**: 0.88945
+- **AUC (Macro)**: 0.94233
+- **AUC (Micro)**: 0.95226
+- **AUC (Weighted)**: 0.94233
+- **Average Precision Score (Macro)**: 0.93200
+- **Average Precision Score (Micro)**: 0.95313
+
 ### Results
 The best-performing model from the AutoML run was a Voting Ensemble, with an accuracy of 0.88945. Although this accuracy may seem moderate, the model’s AUC-weighted score was high (0.94233), likely due to the slightly imbalanced nature of the dataset.
 
@@ -77,14 +85,6 @@ I applied a simple logistic regression model, tuning two key parameters:
 
 ### Results
 The hyperparameter tuning process yielded a best accuracy of `0.73320`, achieved with `C=1.4906697` and `max_iter=100`. Further improvements could be explored by expanding the parameter range or adding other parameters like the solver.
-
-For the AutoML run, the best model selected was a **Voting Ensemble** with the following metrics:
-- **Accuracy**: 0.88945
-- **AUC (Macro)**: 0.94233
-- **AUC (Micro)**: 0.95226
-- **AUC (Weighted)**: 0.94233
-- **Average Precision Score (Macro)**: 0.93200
-- **Average Precision Score (Micro)**: 0.95313
 
 Screenshot of `RunDetails` widget
 
@@ -236,7 +236,7 @@ Example input data for querying the endpoint:
 }
 
 For this example, the expected model response should be:
-```cell
+```json
 Expected output: [1, 1, 0, 1, 0]
 Model response: "{\"result\": [1, 1, 0, 1, 0]}"
 ```
