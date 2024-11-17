@@ -236,7 +236,7 @@ Example input data for querying the endpoint:
 }
 ```
 For this example, the expected model response should be:
-```json
+```text
 Expected output: [1, 1, 0, 1, 0]
 Model response: "{\"result\": [1, 1, 0, 1, 0]}"
 ```
