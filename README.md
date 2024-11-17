@@ -66,22 +66,23 @@ Config:
 - **Featurization**: Automatic feature engineering is enabled (`featurization` = 'auto').
 - **Logging**: Debug logs are saved in "automl_errors.log".
 
-**Run notebook process:**
-**Run widget - Run AutoML experiment**
+**Run notebook process:** \
+**Run widget** \
+Run AutoML experiment
 ![1](images/1.5_01_automl_runwidget_screenshoot1.png)
 Pass all the data validation process
 ![2](images/1.5_01_automl_runwidget_screenshoot2.png)
 Run widget, all the iterations of AutoML experiment
 ![3](images/1.5_01_automl_runwidget_screenshoot3.png)
 
-**Best AutoML model**
+**Best AutoML model** \
 Best automl model, get_output with ID
 ![4](images/1.5_02_automl_bestmodel1.png)
 Best automl model properties
 ![5](images/1.5_02_automl_bestmodel2.png)
 ![6](images/1.5_02_automl_bestmodel3.png)
 
-**Register AutoML best model**
+**Register AutoML best model** \
 Registered AutoML best model in code
 ![7](images/1.5_03_automl_registeredmodel1.png)
 Registered AutoML best model in Model list
@@ -119,7 +120,7 @@ The hyperparameter tuning process yielded a best accuracy of `0.73320`, achieved
 **Save the best model of Hyperparameter notebook**
 ![14](images/1.5_05_hyperdrive_savebestmodel.png)
 
-**Register Hyperparameter best model**
+**Register Hyperparameter best model** \
 Register Hyperparameter best model in code
 ![15](images/1.5_07_hyperdrive_registeredmodel1.png)
 Register Hyperparameter best model in Model list
@@ -160,8 +161,7 @@ Model response: "{\"result\": [1, 1, 0, 1, 0]}"
 **Get service log** \
 Get all the service log
 ![22](images/1.5_09_service_getlogs.png)
-**Delete service**
-
+**Delete service** \
 Delete the service after it all done
 ![23](images/1.5_09_service_delete.png)
 
