@@ -116,9 +116,6 @@ I applied a simple logistic regression model, tuning two key parameters:
 **Setting Random sampling and early stop policy**
 ![9](images/1.5_04_hyperdrive_randomsampling_policy_2tunehyperpara.png)
 
-### Results
-The hyperparameter tuning process yielded a best accuracy of `0.7327`, achieved with `C=0.763899` and `max_iter=100`. Further improvements could be explored by expanding the parameter range or adding other parameters like the solver.
-
 **Hyperparameter notebook: Run experiment** \
 Finished run the Hyperparameter notebook experiment
 ![00](images/1.5_06_hyperdrive_runexperiment_screenshot1.png)
@@ -130,6 +127,9 @@ All of the RunDetails widget log in the notebook
 ![12](images/1.5_06_hyperdrive_runwidget_screenshoot3.png)
 ![13](images/1.5_06_hyperdrive_runwidget_screenshoot4.png)
 ![00](images/1.5_06_hyperdrive_runwidget_screenshoot5.png)
+
+### Results
+The hyperparameter tuning process yielded a best accuracy of `0.7327`, achieved with `C=0.763899` and `max_iter=100`. Further improvements could be explored by expanding the parameter range or adding other parameters like the solver.
 
 **Save the best model of Hyperparameter notebook**
 ![14](images/1.5_05_hyperdrive_savebestmodel.png)
