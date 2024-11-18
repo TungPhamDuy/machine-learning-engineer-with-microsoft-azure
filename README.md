@@ -142,8 +142,9 @@ Register Hyperparameter best model in Model list
 
 ## Model Deployment
 
-**Explain the chosen model**
+### **Explain the chosen model** \
 The AutoML-selected model, a **Voting Ensemble**, was chosen as the final model due to its superior performance across multiple metrics. This ensemble model achieved an accuracy of **0.8897**, which significantly outperformed the hyperparameter tuning's best logistic regression model with an accuracy of **0.7327**. Additionally, the Voting Ensemble demonstrated robust handling of the dataset's slight imbalance, as evidenced by its **AUC-weighted score of 0.94036**. This higher AUC indicates better model performance in distinguishing between the classes. The ensemble approach in the AutoML model leveraged multiple algorithms to enhance prediction accuracy and was ultimately selected as the best model for deployment.
+
 
 The best model from the AutoML experiment was deployed with authentication enabled for secure access and app insight enable for monitoring.
 ![17](images/1.5_08_endpoint2.png)
