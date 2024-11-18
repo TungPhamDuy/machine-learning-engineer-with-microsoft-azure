@@ -66,21 +66,29 @@ Config:
 - **Featurization**: Automatic feature engineering is enabled (`featurization` = 'auto').
 - **Logging**: Debug logs are saved in "automl_errors.log".
 
-**Run notebook process:** \
-**Run widget** \
-Run AutoML experiment
-![1](images/1.5_01_automl_runwidget_screenshoot1.png)
-Pass all the data validation process
+**AutoML notebook: Run experiment** \
+Finished run the AutoML notebook experiment
+![1](images/1.5_01_automl_runexperiment_screenshot.png)
+
+**AutoML notebook: RunDetails widget** \
+All of the RunDetails widget log in the notebook
+Cross validation of the dataset, number of fold is 3
+![0](images/1.5_01_automl_runwidget_screenshoot1.png)
+Pass all of the data validation steps
 ![2](images/1.5_01_automl_runwidget_screenshoot2.png)
-Run widget, all the iterations of AutoML experiment
+Iterated through different algorithms to find the best model
 ![3](images/1.5_01_automl_runwidget_screenshoot3.png)
+All the log of RunDetails
+![0](images/1.5_01_automl_runwidget_screenshoot4.png)
+![0](images/1.5_01_automl_runwidget_screenshoot5.png)
+![0](images/1.5_01_automl_runwidget_screenshoot6.png)
+
 
 **Best AutoML model** \
 Best automl model, get_output with ID
 ![4](images/1.5_02_automl_bestmodel1.png)
 Best automl model properties
 ![5](images/1.5_02_automl_bestmodel2.png)
-![6](images/1.5_02_automl_bestmodel3.png)
 
 **Register AutoML best model** \
 Registered AutoML best model in code
@@ -89,15 +97,15 @@ Registered AutoML best model in Model list
 ![8](images/1.5_03_automl_registeredmodel2.png)
 
 For the AutoML run, the best model selected was a **Voting Ensemble** with the following metrics:
-- **Accuracy**: 0.88945
+- **Accuracy**: 0.8897
 - **AUC (Macro)**: 0.94233
 - **AUC (Micro)**: 0.95226
-- **AUC (Weighted)**: 0.94233
+- **AUC (Weighted)**: 0.94036
 - **Average Precision Score (Macro)**: 0.93200
 - **Average Precision Score (Micro)**: 0.95313
 
 ### Results
-The best-performing model from the AutoML run was a Voting Ensemble, with an accuracy of 0.88945. Although this accuracy may seem moderate, the model’s AUC-weighted score was high (0.94233), likely due to the slightly imbalanced nature of the dataset.
+The best-performing model from the AutoML run was a Voting Ensemble, with an accuracy of `0.8897`. Although this accuracy may seem moderate, the model’s AUC-weighted score was high (`0.94036`), likely due to the slightly imbalanced nature of the dataset.
 
 ## Hyperparameter Tuning
 
@@ -109,13 +117,19 @@ I applied a simple logistic regression model, tuning two key parameters:
 ![9](images/1.5_04_hyperdrive_randomsampling_policy_2tunehyperpara.png)
 
 ### Results
-The hyperparameter tuning process yielded a best accuracy of `0.73320`, achieved with `C=1.4906697` and `max_iter=100`. Further improvements could be explored by expanding the parameter range or adding other parameters like the solver.
+The hyperparameter tuning process yielded a best accuracy of `0.7327`, achieved with `C=0.763899` and `max_iter=100`. Further improvements could be explored by expanding the parameter range or adding other parameters like the solver.
 
-**Run widget of the Hyperparameter experiment**
+**Hyperparameter notebook: Run experiment** \
+Finished run the Hyperparameter notebook experiment
+![00](images/1.5_06_hyperdrive_runexperiment_screenshot1.png)
+
+**Hyperparameter notebook: RunDetails widget** \
+All of the RunDetails widget log in the notebook
 ![10](images/1.5_06_hyperdrive_runwidget_screenshoot1.png)
 ![11](images/1.5_06_hyperdrive_runwidget_screenshoot2.png)
 ![12](images/1.5_06_hyperdrive_runwidget_screenshoot3.png)
 ![13](images/1.5_06_hyperdrive_runwidget_screenshoot4.png)
+![00](images/1.5_06_hyperdrive_runwidget_screenshoot5.png)
 
 **Save the best model of Hyperparameter notebook**
 ![14](images/1.5_05_hyperdrive_savebestmodel.png)
@@ -127,13 +141,17 @@ Register Hyperparameter best model in Model list
 ![16](images/1.5_07_hyperdrive_registeredmodel2.png)
 
 ## Model Deployment
+
+**Explain the chosen model**
+The AutoML-selected model, a **Voting Ensemble**, was chosen as the final model due to its superior performance across multiple metrics. This ensemble model achieved an accuracy of **0.8897**, which significantly outperformed the hyperparameter tuning's best logistic regression model with an accuracy of **0.7327**. Additionally, the Voting Ensemble demonstrated robust handling of the dataset's slight imbalance, as evidenced by its **AUC-weighted score of 0.94036**. This higher AUC indicates better model performance in distinguishing between the classes. The ensemble approach in the AutoML model leveraged multiple algorithms to enhance prediction accuracy and was ultimately selected as the best model for deployment.
+
 The best model from the AutoML experiment was deployed with authentication enabled for secure access and app insight enable for monitoring.
 ![17](images/1.5_08_endpoint2.png)
 
 The Endpoint is registered in Endpoint page
 ![18](images/1.5_08_endpoint1.png)
 
-Screenshot showing model endpoint with deployment status as Completed, operation status as Healthy, and endpoint URI:
+Screenshot showing model endpoint with deployment status as Completed, operation status as Healthy, and REST endpoint URI:
 ![19](images/1.5_08_endpoint3.png)
 ![20](images/1.5_08_endpoint4.png)
 
