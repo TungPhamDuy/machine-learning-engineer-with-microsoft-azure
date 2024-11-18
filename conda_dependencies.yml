@@ -3,5 +3,5 @@ dependencies:
   - scikit-learn
   - numpy
   - pandas
-  - pip:
+  - pip: 
     - azureml-defaults
